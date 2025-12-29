@@ -15,7 +15,12 @@ class MorningAzkarView extends StatelessWidget {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 9),
-            child: Icon(Icons.arrow_forward),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Icon(Icons.arrow_forward),
+            ),
           ),
         ],
 
