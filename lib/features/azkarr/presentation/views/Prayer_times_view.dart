@@ -6,6 +6,9 @@ class PrayertimesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: PrayertimesBody());
+    return Scaffold(
+      backgroundColor: Color(0xff003641),
+      body: PrayertimesBody(),
+    );
   }
 }

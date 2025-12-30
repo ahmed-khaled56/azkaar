@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class customOnButton extends StatelessWidget {
   final bool? pressed;
-  const customOnButton({super.key, this.pressed});
+  const customOnButton({super.key, this.pressed, this.color});
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +11,7 @@ class customOnButton extends StatelessWidget {
       width: 50,
       height: 30,
       decoration: BoxDecoration(
-        color: pressed == true ? Colors.green : Colors.black,
+        color: pressed == true ? Colors.green : color,
         borderRadius: BorderRadius.circular(30),
       ),
       child: Align(

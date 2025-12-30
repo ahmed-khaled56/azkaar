@@ -8,6 +8,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xffd4d4aa),
         title: Center(
           child: Text("وذَكّر", style: TextStyle(color: Colors.black)),
         ),
@@ -18,7 +19,7 @@ class HomeView extends StatelessWidget {
           ),
         ],
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xff073542),
       body: HomeViewBody(),
     );
   }
