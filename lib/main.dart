@@ -1,9 +1,7 @@
 import 'package:azkaar/cores/servises/local_notification_service.dart';
-import 'package:azkaar/cores/servises/work_manager_services.dart';
 import 'package:azkaar/features/azkarr/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:timezone/data/latest.dart' as tz;
-import 'package:workmanager/workmanager.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

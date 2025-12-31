@@ -4,11 +4,11 @@ import 'package:azkaar/cores/servises/work_manager_services.dart';
 import 'package:azkaar/features/azkarr/presentation/views/widgets/Custom_on_buttn.dart';
 import 'package:flutter/material.dart';
 
-class NotificatinsCard extends StatefulWidget {
-  const NotificatinsCard({super.key});
+class NightBotifCard extends StatefulWidget {
+  const NightBotifCard({super.key});
 
   @override
-  State<NotificatinsCard> createState() => _NotificatinsCardState();
+  State<NightBotifCard> createState() => _NightBotifCardState();
 }
 
 bool OnIsPressed = false;
@@ -17,7 +17,7 @@ int? min;
 DayPeriod? status;
 ValueChanged<TimeOfDay>? onTimeSelected;
 
-class _NotificatinsCardState extends State<NotificatinsCard> {
+class _NightBotifCardState extends State<NightBotifCard> {
   Future<void> _selectTime(BuildContext context) async {
     TimeOfDay? pickedTime = await pickerTime(context);
 

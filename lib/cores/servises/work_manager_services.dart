@@ -1,5 +1,4 @@
 import 'package:azkaar/cores/servises/local_notification_service.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workmanager/workmanager.dart';
 
 int _hour = 0;

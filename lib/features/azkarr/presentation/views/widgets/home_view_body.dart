@@ -1,5 +1,6 @@
 import 'package:azkaar/features/azkarr/presentation/views/Prayer_times_view.dart';
 import 'package:azkaar/features/azkarr/presentation/views/morning_azkar_view.dart';
+import 'package:azkaar/features/azkarr/presentation/views/night_azkarr_view.dart';
 import 'package:azkaar/features/azkarr/presentation/views/sebha_view.dart';
 import 'package:azkaar/features/azkarr/presentation/views/widgets/custom_category_card.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,15 @@ class HomeViewBody extends StatelessWidget {
             },
             child: CustomCategoryCard(title: "أذكار الصباح"),
           ),
-          CustomCategoryCard(title: "أذكار المساء"),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => NightAzkarrView()),
+              );
+            },
+            child: CustomCategoryCard(title: "أذكار المساء"),
+          ),
           GestureDetector(
             onTap: () {
               Navigator.push(
