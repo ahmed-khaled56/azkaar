@@ -1,25 +1,30 @@
+import 'package:azkaar/features/azkarr/presentation/manager/qurran_cubit/quraan_cubit.dart';
+import 'package:azkaar/features/azkarr/presentation/manager/qurran_cubit/qurran_cubit_states.dart';
 import 'package:azkaar/features/azkarr/presentation/views/widgets/home_view_body.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
+  // BlocProvider(
 
-  @override
+  //       child: Builder(
+  //         builder: (context) {
+  //           return BlocBuilder<QuraanCubit, QurranCubitStates>(
+  //             builder: (context, state) {
+  //   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white70,
       appBar: AppBar(
-        backgroundColor: Color(0xffd4d4aa),
+        backgroundColor: Color(0xff1d7d84),
         title: Center(
-          child: Text("وذَكّر", style: TextStyle(color: Colors.black)),
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 9),
-            child: Icon(Icons.arrow_forward_rounded),
+          child: Text(
+            'وذكّر',
+            style: TextStyle(fontSize: 30, color: Colors.black),
           ),
-        ],
+        ),
       ),
-      backgroundColor: Color(0xff073542),
       body: HomeViewBody(),
     );
   }

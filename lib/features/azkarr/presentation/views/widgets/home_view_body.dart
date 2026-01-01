@@ -1,9 +1,12 @@
+import 'package:azkaar/features/azkarr/presentation/manager/qurran_cubit/quraan_cubit.dart';
 import 'package:azkaar/features/azkarr/presentation/views/Prayer_times_view.dart';
 import 'package:azkaar/features/azkarr/presentation/views/morning_azkar_view.dart';
 import 'package:azkaar/features/azkarr/presentation/views/night_azkarr_view.dart';
+import 'package:azkaar/features/azkarr/presentation/views/qurran_view.dart';
 import 'package:azkaar/features/azkarr/presentation/views/sebha_view.dart';
 import 'package:azkaar/features/azkarr/presentation/views/widgets/custom_category_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -51,7 +54,16 @@ class HomeViewBody extends StatelessWidget {
             },
             child: CustomCategoryCard(title: "سبحه"),
           ),
-          CustomCategoryCard(title: "قرأن كريم"),
+          GestureDetector(
+            onTap: () async {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => QurranView()),
+              );
+              await BlocProvider.of<QuraanCubit>(context).getAllSurahqurran();
+            },
+            child: CustomCategoryCard(title: "قرأن كريم"),
+          ),
         ],
       ),
     );

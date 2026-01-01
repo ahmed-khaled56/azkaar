@@ -9,7 +9,7 @@ class Ayah extends Equatable {
   final int? page;
   final int? ruku;
   final int? hizbQuarter;
-  final bool? sajda;
+  final dynamic? sajda;
 
   const Ayah({
     this.number,
@@ -32,7 +32,7 @@ class Ayah extends Equatable {
     page: json['page'] as int?,
     ruku: json['ruku'] as int?,
     hizbQuarter: json['hizbQuarter'] as int?,
-    sajda: json['sajda'] as bool?,
+    sajda: json['sajda'],
   );
 
   Map<String, dynamic> toJson() => {

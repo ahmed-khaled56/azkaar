@@ -5,18 +5,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class QuraanCubit extends Cubit<QurranCubitStates> {
   QuraanCubit() : super(NoQuraanState());
-  List<dynamic>? quraanMode;
-  getWeather({required String cityName}) async {
+  List? quraanModeList;
+  getAllSurahqurran() async {
     try {
-      quraanMode = await GetAllSurahQurran().getAllSurahQurran();
+      quraanModeList = await GetAllSurahQurranService().getAllSurahQurran();
+      final List<QuraanMode> quraanList = quraanModeList!
+          .map((e) => QuraanMode.fromJson(e as Map<String, dynamic>))
+          .toList();
 
-      emit(
-        QuraanLoadedSuccessfullSatate(
-          quraanModeList: quraanMode!
-              .map((e) => QuraanMode.fromJson(e))
-              .toList(),
-        ),
-      );
+      emit(QuraanLoadedSuccessfullSatate(quraanModeList: quraanList));
     } catch (e) {
       emit(QuraanFailureSatate(errMessage: e.toString()));
     }
