@@ -13,6 +13,7 @@ class HomeView extends StatelessWidget {
   //           return BlocBuilder<QuraanCubit, QurranCubitStates>(
   //             builder: (context, state) {
   //   @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white70,

@@ -1,4 +1,5 @@
 import 'package:azkaar/features/azkarr/data/models/quraan_mode/quraan_mode.dart';
+import 'package:azkaar/features/azkarr/presentation/views/qurran_surah_page.dart';
 import 'package:azkaar/features/azkarr/presentation/views/widgets/custom_sura_name.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,21 @@ class QurranViewBody extends StatelessWidget {
             child: ListView.builder(
               itemCount: dataList.length,
               itemBuilder: (context, index) {
-                return CustomSuraName(quraanMode: dataList[index]);
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => QurranPage(
+                          quraanMode: dataList[index],
+                          basmal: dataList[0].ayahs![0].text!,
+                          pageNumber: dataList[index].ayahs![0].page!,
+                        ),
+                      ),
+                    );
+                  },
+                  child: CustomSuraName(quraanMode: dataList[index]),
+                );
               },
             ),
           ),

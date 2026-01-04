@@ -19,6 +19,7 @@ class _QurranViewState extends State<QurranView> {
   @override
   List<QuraanMode> dataList = [];
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white70,
@@ -32,6 +33,7 @@ class _QurranViewState extends State<QurranView> {
         listener: (context, state) {
           if (state is QuraanFailureSatate) {
             showSnackBar(context, state.errMessage);
+            print("error is:${state.errMessage}");
           }
         },
         builder: (context, state) {

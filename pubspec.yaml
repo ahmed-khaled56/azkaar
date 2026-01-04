@@ -35,6 +35,7 @@ dependencies:
   flutter_bloc: ^9.1.1
   flutter_local_notifications: ^19.5.0
   flutter_timezone: ^5.0.1
+  quran: ^1.4.1
   shared_preferences: ^2.5.4
   timezone: ^0.10.1
   workmanager: ^0.9.0+3
@@ -66,17 +67,14 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+  fonts:
+    - family: Uthmanic
+      fonts:
+        - asset: lib/cores/assets/fonts/Uthmanic.otf
+    - family: Aref Ruqaa
+      fonts:
+        - asset: lib/cores/assets/fonts/ArefRuqaa-Regular.ttf
+
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
