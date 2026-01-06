@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:azkaar/cores/helper/show_snak_bar.dart';
 import 'package:azkaar/features/azkarr/data/models/quraan_mode/quraan_mode.dart';
 import 'package:azkaar/features/azkarr/presentation/manager/qurran_cubit/quraan_cubit.dart';
@@ -22,7 +20,7 @@ class _QurranViewState extends State<QurranView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white70,
+      backgroundColor: const Color.fromARGB(179, 240, 231, 231),
       appBar: AppBar(
         backgroundColor: Color(0xff1d7d84),
         title: Center(

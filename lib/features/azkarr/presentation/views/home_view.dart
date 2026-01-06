@@ -1,8 +1,5 @@
-import 'package:azkaar/features/azkarr/presentation/manager/qurran_cubit/quraan_cubit.dart';
-import 'package:azkaar/features/azkarr/presentation/manager/qurran_cubit/qurran_cubit_states.dart';
 import 'package:azkaar/features/azkarr/presentation/views/widgets/home_view_body.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
