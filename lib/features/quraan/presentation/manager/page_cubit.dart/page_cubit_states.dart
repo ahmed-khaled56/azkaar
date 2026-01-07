@@ -1,4 +1,4 @@
-import 'package:azkaar/features/azkarr/data/models/quraan_mode/ayah.dart';
+import 'package:azkaar/features/quraan/data/models/quraan_mode/ayah.dart';
 
 abstract class QuranPageState {}
 

@@ -1,4 +1,4 @@
-import 'package:azkaar/features/azkarr/data/models/quraan_mode/quraan_mode.dart';
+import 'package:azkaar/features/quraan/data/models/quraan_mode/quraan_mode.dart';
 
 class QurranCubitStates {}
 

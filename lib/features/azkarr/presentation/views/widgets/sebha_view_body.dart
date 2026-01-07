@@ -1,3 +1,5 @@
+import 'package:azkaar/cores/servises/sharedPreLocalDataBaseServices.dart';
+import 'package:azkaar/features/azkarr/data/repos/models/sebha_model.dart';
 import 'package:azkaar/features/azkarr/presentation/views/widgets/customTextCounter.dart';
 import 'package:azkaar/features/azkarr/presentation/views/widgets/custom_botton.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +28,36 @@ class _SebhaViewBodyState extends State<SebhaViewBody> {
   int snap5 = 0;
 
   bool isReseted = false;
+  SebhaModel sebha = SebhaModel();
+  void initState() {
+    super.initState();
+    _loadData();
+  }
+
+  Future<void> _loadData() async {
+    sebha = await SebhaSharedPrefs.load();
+    setState(() {
+      count1 = sebha.c1;
+      count2 = sebha.c2;
+      count3 = sebha.c3;
+      count4 = sebha.c4;
+      count5 = sebha.c5;
+    });
+  }
+
+  Future<void> _saveData() async {
+    await SebhaSharedPrefs.save(sebha);
+  }
+
+  Future<void> _resetCountersOnly() async {
+    sebha.c1 = 0;
+    sebha.c2 = 0;
+    sebha.c3 = 0;
+    sebha.c4 = 0;
+    sebha.c5 = 0;
+
+    await SebhaSharedPrefs.save(sebha);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +86,7 @@ class _SebhaViewBodyState extends State<SebhaViewBody> {
                     snap1 = count1;
                     snap2 = count2;
                     snap3 = count3;
-                    snap3 = count4;
+                    snap4 = count4;
                     snap5 = count5;
                   }
                   showDialog(
@@ -115,7 +147,9 @@ class _SebhaViewBodyState extends State<SebhaViewBody> {
                         setState(() {
                           count1++;
                           snap1++;
+                          sebha.c1 = count1;
                         });
+                        _saveData();
                       },
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -130,7 +164,9 @@ class _SebhaViewBodyState extends State<SebhaViewBody> {
                         setState(() {
                           count2++;
                           snap2++;
+                          sebha.c2 = count2;
                         });
+                        _saveData();
                       },
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -145,7 +181,9 @@ class _SebhaViewBodyState extends State<SebhaViewBody> {
                         setState(() {
                           count3++;
                           snap3++;
+                          sebha.c3 = count3;
                         });
+                        _saveData();
                       },
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -160,7 +198,9 @@ class _SebhaViewBodyState extends State<SebhaViewBody> {
                         setState(() {
                           count4++;
                           snap4++;
+                          sebha.c4 = count4;
                         });
+                        _saveData();
                       },
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -175,7 +215,9 @@ class _SebhaViewBodyState extends State<SebhaViewBody> {
                         setState(() {
                           count5++;
                           snap5++;
+                          sebha.c5 = count5;
                         });
+                        _saveData();
                       },
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -200,13 +242,15 @@ class _SebhaViewBodyState extends State<SebhaViewBody> {
                     count4 = 0;
                     count5 = 0;
                   });
+                  sebha = SebhaModel();
+                  _resetCountersOnly();
                 },
                 child: Icon(Icons.refresh_outlined, size: 45),
               ),
               Spacer(),
 
               Text(
-                "${count1 + count2 + count3 + count4 + count5}",
+                "${sebha.total}",
 
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
               ),

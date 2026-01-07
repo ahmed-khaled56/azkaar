@@ -1,8 +1,8 @@
 import 'package:azkaar/cores/helper/show_snak_bar.dart';
-import 'package:azkaar/features/azkarr/data/models/quraan_mode/quraan_mode.dart';
-import 'package:azkaar/features/azkarr/presentation/manager/qurran_cubit/quraan_cubit.dart';
-import 'package:azkaar/features/azkarr/presentation/manager/qurran_cubit/qurran_cubit_states.dart';
-import 'package:azkaar/features/azkarr/presentation/views/widgets/qurran_view_body.dart';
+import 'package:azkaar/features/quraan/data/models/quraan_mode/quraan_mode.dart';
+import 'package:azkaar/features/quraan/presentation/manager/qurran_cubit/quraan_cubit.dart';
+import 'package:azkaar/features/quraan/presentation/manager/qurran_cubit/qurran_cubit_states.dart';
+import 'package:azkaar/features/quraan/presentation/views/widgets/qurran_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

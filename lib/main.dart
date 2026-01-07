@@ -1,6 +1,6 @@
 import 'package:azkaar/cores/servises/local_notification_service.dart';
-import 'package:azkaar/features/azkarr/presentation/manager/qurran_cubit/quraan_cubit.dart';
-import 'package:azkaar/features/azkarr/presentation/manager/qurran_cubit/qurran_cubit_states.dart';
+import 'package:azkaar/features/quraan/presentation/manager/qurran_cubit/quraan_cubit.dart';
+import 'package:azkaar/features/quraan/presentation/manager/qurran_cubit/qurran_cubit_states.dart';
 import 'package:azkaar/features/azkarr/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

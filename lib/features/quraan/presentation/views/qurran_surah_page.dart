@@ -1,5 +1,5 @@
-import 'package:azkaar/features/azkarr/data/models/quraan_mode/quraan_mode.dart';
-import 'package:azkaar/features/azkarr/presentation/views/widgets/qurran_page_body.dart';
+import 'package:azkaar/features/quraan/data/models/quraan_mode/quraan_mode.dart';
+import 'package:azkaar/features/quraan/presentation/views/widgets/qurran_page_body.dart';
 import 'package:flutter/material.dart';
 
 // class QurranPage extends StatelessWidget {
@@ -34,14 +34,18 @@ class QurranPage extends StatelessWidget {
   final String basmal;
 
   @override
+  static const int totalPages = 604;
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 237, 231, 218),
-      // backgroundColor: const Color(0xffd9c7b8),
+      backgroundColor: const Color.fromARGB(255, 237, 231, 218),
       body: PageView.builder(
-        itemCount: (lastPage - firstPage) + 1,
+        controller: PageController(initialPage: firstPage - 1),
+        itemCount: totalPages,
+        reverse: true, // 👈 مهم عشان الاتجاه عربي
         itemBuilder: (context, index) {
-          final pageNumber = firstPage + index;
+          final pageNumber = index + 1;
 
           return QurranPageBody(pageNumber: pageNumber, basmala: basmal);
         },

@@ -1,6 +1,6 @@
-import 'package:azkaar/features/azkarr/data/models/quraan_mode/ayah.dart';
-import 'package:azkaar/features/azkarr/presentation/manager/page_cubit.dart/page_cubit.dart';
-import 'package:azkaar/features/azkarr/presentation/manager/page_cubit.dart/page_cubit_states.dart';
+import 'package:azkaar/features/quraan/data/models/quraan_mode/ayah.dart';
+import 'package:azkaar/features/quraan/presentation/manager/page_cubit.dart/page_cubit.dart';
+import 'package:azkaar/features/quraan/presentation/manager/page_cubit.dart/page_cubit_states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -192,8 +192,8 @@ class QurranPageBody extends StatelessWidget {
               textDirection: TextDirection.rtl,
               textAlign: TextAlign.justify,
               style: TextStyle(
-                fontFamily: 'Aref Ruqaa',
-                fontSize: currentNum != 1 && !(pageNumber < 3) ? 18 : 19,
+                fontFamily: 'Amiri Quran',
+                fontSize: currentNum != 1 && !(pageNumber < 3) ? 16 : 19,
                 height: 2,
               ),
             ),
@@ -220,13 +220,13 @@ class QurranPageBody extends StatelessWidget {
                 Image.asset(
                   "lib/cores/assets/images/bordermae.jpg",
                   width: 300,
-                  height: 80,
+                  height: 70,
                 ),
                 Text(
                   ayah.surahName ?? '',
                   textDirection: TextDirection.rtl,
                   style: const TextStyle(
-                    fontFamily: 'Aref Ruqaa',
+                    fontFamily: 'Amiri Quran',
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
@@ -285,9 +285,9 @@ class QurranPageBody extends StatelessWidget {
                 /// 🟢 المحتوى
                 Padding(
                   padding: EdgeInsets.fromLTRB(
-                    currentNum == 1 && !(pageNumber < 3) ? 20 : 50,
+                    currentNum == 1 && !(pageNumber < 3) ? 10 : 50,
                     currentNum == 1 && !(pageNumber < 3) ? 10 : 120,
-                    currentNum == 1 && !(pageNumber < 3) ? 20 : 50,
+                    currentNum == 1 && !(pageNumber < 3) ? 10 : 50,
                     currentNum != 1 && !(pageNumber < 3) ? 0 : 0,
                   ),
                   child: SingleChildScrollView(

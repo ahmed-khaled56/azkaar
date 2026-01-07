@@ -1,8 +1,8 @@
-import 'package:azkaar/features/azkarr/presentation/manager/qurran_cubit/quraan_cubit.dart';
+import 'package:azkaar/features/quraan/presentation/manager/qurran_cubit/quraan_cubit.dart';
 import 'package:azkaar/features/azkarr/presentation/views/Prayer_times_view.dart';
 import 'package:azkaar/features/azkarr/presentation/views/morning_azkar_view.dart';
 import 'package:azkaar/features/azkarr/presentation/views/night_azkarr_view.dart';
-import 'package:azkaar/features/azkarr/presentation/views/qurran_view.dart';
+import 'package:azkaar/features/quraan/presentation/views/qurran_view.dart';
 import 'package:azkaar/features/azkarr/presentation/views/sebha_view.dart';
 import 'package:azkaar/features/azkarr/presentation/views/widgets/custom_category_card.dart';
 import 'package:flutter/material.dart';

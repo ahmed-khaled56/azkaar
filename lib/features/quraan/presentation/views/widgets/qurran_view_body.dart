@@ -1,6 +1,6 @@
-import 'package:azkaar/features/azkarr/data/models/quraan_mode/quraan_mode.dart';
-import 'package:azkaar/features/azkarr/presentation/views/qurran_surah_page.dart';
-import 'package:azkaar/features/azkarr/presentation/views/widgets/custom_sura_name.dart';
+import 'package:azkaar/features/quraan/data/models/quraan_mode/quraan_mode.dart';
+import 'package:azkaar/features/quraan/presentation/views/qurran_surah_page.dart';
+import 'package:azkaar/features/quraan/presentation/views/widgets/custom_sura_name.dart';
 import 'package:flutter/material.dart';
 
 // class QurranViewBody extends StatelessWidget {
@@ -40,10 +40,6 @@ import 'package:flutter/material.dart';
 //     );
 //   }
 // }
-import 'package:azkaar/features/azkarr/data/models/quraan_mode/quraan_mode.dart';
-import 'package:azkaar/features/azkarr/presentation/views/qurran_surah_page.dart';
-import 'package:azkaar/features/azkarr/presentation/views/widgets/custom_sura_name.dart';
-import 'package:flutter/material.dart';
 
 class QurranViewBody extends StatelessWidget {
   const QurranViewBody({super.key, required this.dataList});

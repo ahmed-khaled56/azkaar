@@ -1,5 +1,5 @@
 import 'package:azkaar/cores/helper/API.dart';
-import 'package:azkaar/features/azkarr/data/models/quraan_mode/ayah.dart';
+import 'package:azkaar/features/quraan/data/models/quraan_mode/ayah.dart';
 
 class GetQuranPageService {
   Future<List<Ayah>> getQuranPage(int pageNumber) async {
