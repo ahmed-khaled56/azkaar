@@ -7,6 +7,11 @@ class SebhaSharedPrefs {
   static const String _k3 = 'sebha_c3';
   static const String _k4 = 'sebha_c4';
   static const String _k5 = 'sebha_c5';
+  static const String _k6 = 'record_s1';
+  static const String _k7 = 'srecord_s2';
+  static const String _k8 = 'record_s3';
+  static const String _k9 = 'record_s4';
+  static const String _k10 = 'record_s5';
 
   /// حفظ الداتا
   static Future<void> save(SebhaModel model) async {
@@ -16,6 +21,15 @@ class SebhaSharedPrefs {
     await prefs.setInt(_k3, model.c3);
     await prefs.setInt(_k4, model.c4);
     await prefs.setInt(_k5, model.c5);
+  }
+
+  static Future<void> saveRecord(recordModel record) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setInt(_k6, record.s1);
+    await prefs.setInt(_k7, record.s2);
+    await prefs.setInt(_k8, record.s3);
+    await prefs.setInt(_k9, record.s4);
+    await prefs.setInt(_k10, record.s5);
   }
 
   /// قراءة الداتا
@@ -30,6 +44,17 @@ class SebhaSharedPrefs {
     );
   }
 
+  static Future<recordModel> loadRecord() async {
+    final prefs = await SharedPreferences.getInstance();
+    return recordModel(
+      s1: prefs.getInt(_k6) ?? 0,
+      s2: prefs.getInt(_k7) ?? 0,
+      s3: prefs.getInt(_k8) ?? 0,
+      s4: prefs.getInt(_k9) ?? 0,
+      s5: prefs.getInt(_k10) ?? 0,
+    );
+  }
+
   /// تصفير
   static Future<void> clear() async {
     final prefs = await SharedPreferences.getInstance();
@@ -38,5 +63,14 @@ class SebhaSharedPrefs {
     await prefs.remove(_k3);
     await prefs.remove(_k4);
     await prefs.remove(_k5);
+  }
+
+  static Future<void> clearRewcord() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove(_k6);
+    await prefs.remove(_k7);
+    await prefs.remove(_k8);
+    await prefs.remove(_k9);
+    await prefs.remove(_k10);
   }
 }

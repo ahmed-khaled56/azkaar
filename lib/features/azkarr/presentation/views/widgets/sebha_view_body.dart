@@ -29,24 +29,49 @@ class _SebhaViewBodyState extends State<SebhaViewBody> {
 
   bool isReseted = false;
   SebhaModel sebha = SebhaModel();
+  recordModel record = recordModel();
+  @override
   void initState() {
     super.initState();
     _loadData();
+    _loadRecordData();
   }
 
   Future<void> _loadData() async {
     sebha = await SebhaSharedPrefs.load();
+
     setState(() {
       count1 = sebha.c1;
       count2 = sebha.c2;
       count3 = sebha.c3;
       count4 = sebha.c4;
       count5 = sebha.c5;
+
+      snap1 = record.s1;
+      snap2 = record.s2;
+      snap3 = record.s3;
+      snap4 = record.s4;
+      snap5 = record.s5;
+    });
+  }
+
+  Future<void> _loadRecordData() async {
+    record = await SebhaSharedPrefs.loadRecord();
+    setState(() {
+      snap1 = record.s1;
+      snap2 = record.s2;
+      snap3 = record.s3;
+      snap4 = record.s4;
+      snap5 = record.s5;
     });
   }
 
   Future<void> _saveData() async {
     await SebhaSharedPrefs.save(sebha);
+  }
+
+  Future<void> _saveRecordData() async {
+    await SebhaSharedPrefs.saveRecord(record);
   }
 
   Future<void> _resetCountersOnly() async {
@@ -59,8 +84,23 @@ class _SebhaViewBodyState extends State<SebhaViewBody> {
     await SebhaSharedPrefs.save(sebha);
   }
 
+  Future<void> _resetRecordOnly() async {
+    record.s1 = 0;
+    record.s2 = 0;
+    record.s3 = 0;
+    record.s4 = 0;
+    record.s5 = 0;
+
+    await SebhaSharedPrefs.saveRecord(record);
+  }
+
   @override
   Widget build(BuildContext context) {
+    print("////////${snap1}");
+    print("///////${record.s1}");
+    print("///////${snap1}");
+
+    // print("${sebha.s1}");
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -77,25 +117,18 @@ class _SebhaViewBodyState extends State<SebhaViewBody> {
             Padding(
               padding: const EdgeInsets.only(right: 10),
               child: GestureDetector(
-                onTap: () {
-                  if (snap1 == 0 &&
-                      snap2 == 0 &&
-                      snap3 == 0 &&
-                      snap4 == 0 &&
-                      snap5 == 0) {
-                    snap1 = count1;
-                    snap2 = count2;
-                    snap3 = count3;
-                    snap4 = count4;
-                    snap5 = count5;
-                  }
+                onTap: () async {
+                  _saveRecordData();
                   showDialog(
                     context: context,
                     builder: (_) => RecordSheet(
-                      onDelete: () {
+                      onDelete: () async {
                         setState(() {
                           snap1 = snap2 = snap3 = snap4 = snap5 = 0;
                         });
+
+                        _resetRecordOnly();
+                        _saveRecordData();
                       },
                       c1: snap1,
                       c2: snap2,
@@ -148,6 +181,7 @@ class _SebhaViewBodyState extends State<SebhaViewBody> {
                           count1++;
                           snap1++;
                           sebha.c1 = count1;
+                          record.s1 = snap1;
                         });
                         _saveData();
                       },
@@ -165,6 +199,7 @@ class _SebhaViewBodyState extends State<SebhaViewBody> {
                           count2++;
                           snap2++;
                           sebha.c2 = count2;
+                          record.s2 = snap2;
                         });
                         _saveData();
                       },
@@ -182,6 +217,7 @@ class _SebhaViewBodyState extends State<SebhaViewBody> {
                           count3++;
                           snap3++;
                           sebha.c3 = count3;
+                          record.s3 = snap3;
                         });
                         _saveData();
                       },
@@ -199,6 +235,7 @@ class _SebhaViewBodyState extends State<SebhaViewBody> {
                           count4++;
                           snap4++;
                           sebha.c4 = count4;
+                          record.s4 = snap4;
                         });
                         _saveData();
                       },
@@ -216,6 +253,7 @@ class _SebhaViewBodyState extends State<SebhaViewBody> {
                           count5++;
                           snap5++;
                           sebha.c5 = count5;
+                          record.s5 = snap5;
                         });
                         _saveData();
                       },
@@ -234,7 +272,7 @@ class _SebhaViewBodyState extends State<SebhaViewBody> {
           child: Row(
             children: [
               GestureDetector(
-                onTap: () {
+                onTap: () async {
                   setState(() {
                     count1 = 0;
                     count2 = 0;
@@ -242,15 +280,15 @@ class _SebhaViewBodyState extends State<SebhaViewBody> {
                     count4 = 0;
                     count5 = 0;
                   });
-                  sebha = SebhaModel();
-                  _resetCountersOnly();
+
+                  await _resetCountersOnly();
                 },
                 child: Icon(Icons.refresh_outlined, size: 45),
               ),
               Spacer(),
 
               Text(
-                "${sebha.total}",
+                "${sebha.total1}",
 
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
               ),

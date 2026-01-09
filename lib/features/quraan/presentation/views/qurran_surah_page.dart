@@ -1,4 +1,3 @@
-import 'package:azkaar/features/quraan/data/models/quraan_mode/quraan_mode.dart';
 import 'package:azkaar/features/quraan/presentation/views/widgets/qurran_page_body.dart';
 import 'package:flutter/material.dart';
 
