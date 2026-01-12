@@ -96,9 +96,9 @@ class _SebhaViewBodyState extends State<SebhaViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    print("////////${snap1}");
+    print("////////$snap1");
     print("///////${record.s1}");
-    print("///////${snap1}");
+    print("///////$snap1");
 
     // print("${sebha.s1}");
     return Column(

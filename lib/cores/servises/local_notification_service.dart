@@ -73,10 +73,14 @@ class LaocalNotificationService {
   }
 
   static Future<void> showSchdulNotification({
-    required int hour,
-    required int min,
+    int? id,
+    String? title,
+    String? body,
+    DateTime? time,
+    int? hour,
+    int? min,
   }) async {
-    _hour = hour;
+    _hour = hour ?? 11;
     NotificationDetails Details = NotificationDetails(
       android: AndroidNotificationDetails(
         "id 3",
@@ -94,8 +98,8 @@ class LaocalNotificationService {
       currentTime.year,
       currentTime.month,
       currentTime.day,
-      hour,
-      min,
+      hour ?? 11,
+      min ?? 0,
     );
     if (sheduledTime.isBefore(currentTime)) {
       sheduledTime = sheduledTime.add(const Duration(days: 1));
@@ -107,10 +111,10 @@ class LaocalNotificationService {
     }
     await flutterLocalNotificationsPlugin.zonedSchedule(
       androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
-      2,
-      "أذكار الصباح",
-      "لا تنسي وردك اليومي من اذكار الصباح",
-      sheduledTime,
+      id ?? 2,
+      title ?? "أذكار الصباح",
+      body ?? "لا تنسي وردك اليومي من اذكار الصباح",
+      time != null ? tz.TZDateTime.from(time, tz.local) : sheduledTime,
       Details,
 
       payload: "Payload Data",
@@ -180,5 +184,9 @@ class LaocalNotificationService {
     if (endTime!.isBefore(now)) {
       endTime = endTime!.add(const Duration(days: 1));
     }
+  }
+
+  static Future<void> cancelAll() async {
+    await flutterLocalNotificationsPlugin.cancelAll();
   }
 }

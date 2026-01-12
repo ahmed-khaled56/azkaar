@@ -1,3 +1,4 @@
+import 'package:azkaar/features/azkarr/presentation/manager/salaaTimes_cubit.dart/salaaTimes_cubit.dart';
 import 'package:azkaar/features/quraan/presentation/manager/qurran_cubit/quraan_cubit.dart';
 import 'package:azkaar/features/azkarr/presentation/views/Prayer_times_view.dart';
 import 'package:azkaar/features/azkarr/presentation/views/morning_azkar_view.dart';
@@ -42,6 +43,7 @@ class HomeViewBody extends StatelessWidget {
                 context,
                 MaterialPageRoute(builder: (context) => PrayertimesView()),
               );
+              BlocProvider.of<SalaatimesCubit>(context).getSalahTimes();
             },
             child: CustomCategoryCard(title: " مواقيت الصلاه"),
           ),
